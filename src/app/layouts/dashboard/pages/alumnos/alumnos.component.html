@@ -1,0 +1,15 @@
+<app-alumni-form (alumniSubmitted)="onAlumniSubtmitted($event)"></app-alumni-form>
+<mat-list>
+  <div *ngFor="let alumn of alumnsData.alumni">
+    <mat-list-item>
+      <span matListItemTitle> {{ alumn.fullName }}</span>
+      <span matListItemLine>Año: {{ alumn.year }}</span>
+      <span matListItemLine>Carrera: {{ alumn.major }}</span>
+      <span matListItemLine>Estado alumno: {{ alumn.status }}</span>
+      <!-- <span matListItemLine
+        >Clases Inscriptas: {{ alumn.clases.join(", ") }}</span
+      > -->
+    </mat-list-item>
+    <hr />
+  </div>
+</mat-list>
