@@ -1,30 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AlumniData, AlumnInfo } from './models';
+import { ServicesComponent } from '../../../../services/services.component';
 
-const ALUMNI_DATA: AlumnInfo[] = [
-  { fullName: 'Juan', year: 1, major: 'Ingenieria Industrial', status: 'Regular' },
-  {
-    fullName: 'Pedro',
-    year: 1,
-    major: 'Ingenieria en Sistemas',
-    status: 'Regular',
-  },
-  {
-    fullName: 'Guillermo',
-    year: 2,
-    major: 'Ingenieria Industrial',
-    status: 'No regular',
-  },
-];
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
   styleUrls: ['./alumnos.component.scss'],
 })
 export class AlumnosComponent {
-  alumnsData: AlumniData = { alumni: ALUMNI_DATA };
+  @Output()
+  alumniSubmitted = new EventEmitter();
+  
+  dataSource = this.alumniList.getAllAlumni();
+  constructor(private alumniList: ServicesComponent) {}
+  showForm = false;
   onAlumniSubtmitted(ev: AlumnInfo): void {
-    // this.alumnsData.alumni.push(ev)
-    this.alumnsData.alumni = [...this.alumnsData.alumni, ev];
+    this.alumniList.addAlumni(ev);
+    this.dataSource = this.alumniList.getAllAlumni();
+  }
+  onAlumniDelete(ev: AlumnInfo) {
+    this.alumniList.deleteAlumni(ev);
+    this.dataSource = this.alumniList.getAllAlumni();
+  }
+  onAlumniEdit(ev: AlumnInfo) {
+    this.showForm = !this.showForm;
   }
 }

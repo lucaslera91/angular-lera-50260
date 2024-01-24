@@ -1,9 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CoursesData } from '../../models';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { AlumnInfo, CoursesData } from '../../models';
 
 const COURSES_DATA: CoursesData = {
-  courses: [
+  majors: [
     'Ingenieria Civil',
     'Ingenieria Quimica',
     'Arquitectura',
@@ -20,23 +25,38 @@ const COURSES_DATA: CoursesData = {
 export class AlumniFormComponent {
   @Output()
   alumniSubmitted = new EventEmitter();
+  @Input() alumn: AlumnInfo = {
+    fullName: '',
+    year: null,
+    major: '',
+    status: '',
+  };
 
-  courses: string[] = COURSES_DATA.courses;
+  majors: string[] = COURSES_DATA.majors;
   alumniForm: FormGroup;
   constructor(private fb: FormBuilder) {
     this.alumniForm = this.fb.group({
       fullName: this.fb.control('', Validators.required),
       year: this.fb.control('', Validators.required),
       major: this.fb.control('', Validators.required),
-      state: this.fb.control('', Validators.required),
+      status: this.fb.control('', Validators.required),
     });
   }
+
+  ngOnInit() {
+    this.alumniForm = this.fb.group({
+      fullName: this.alumn.fullName,
+      year: this.alumn.year,
+      major: this.alumn.major,
+      status: this.alumn.status,
+    });
+  }
+
   onSubmit(): void {
-    this.alumniForm.invalid ? 
-      this.alumniForm.markAllAsTouched():
-      this.alumniSubmitted.emit(this.alumniForm.value);
-    
+    this.alumniForm.invalid
+      ? this.alumniForm.markAllAsTouched()
+      : this.alumniSubmitted.emit(this.alumniForm.value);
+
     this.alumniForm.reset();
-    this.alumniForm.markAllAsTouched()
   }
 }

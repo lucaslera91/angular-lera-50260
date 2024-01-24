@@ -1,6 +1,6 @@
 export interface AlumnInfo {
   fullName: string;
-  year: number;
+  year: number | null;
   major: string;
   status: string;
 }
@@ -9,5 +9,5 @@ export interface AlumniData {
 }
 
 export interface CoursesData {
-  courses: string[];
+  majors: string[];
 }

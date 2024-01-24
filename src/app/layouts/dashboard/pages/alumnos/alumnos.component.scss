@@ -1,0 +1,48 @@
+/* En tu archivo de estilos CSS o SCSS */
+.alumn-card-container {
+  margin-bottom: 16px;
+}
+
+.alumn-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Texto claro */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.alumn-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.alumn-info {
+  padding: 16px;
+}
+
+.mat-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.mat-card-subtitle {
+  font-size: 1rem;
+  color: #ccc; /* Color de subtítulos más claro */
+  margin-bottom: 8px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
+
+button {
+  margin-left: 8px;
+}
+
+mat-icon {
+  font-size: 1.5rem;
+}

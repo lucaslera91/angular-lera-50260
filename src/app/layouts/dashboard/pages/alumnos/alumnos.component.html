@@ -1,15 +1,33 @@
-<app-alumni-form (alumniSubmitted)="onAlumniSubtmitted($event)"></app-alumni-form>
+<app-alumni-form
+  (alumniSubmitted)="onAlumniSubtmitted($event)"
+></app-alumni-form>
 <mat-list>
-  <div *ngFor="let alumn of alumnsData.alumni">
-    <mat-list-item>
-      <span matListItemTitle> {{ alumn.fullName }}</span>
-      <span matListItemLine>Año: {{ alumn.year }}</span>
-      <span matListItemLine>Carrera: {{ alumn.major }}</span>
-      <span matListItemLine>Estado alumno: {{ alumn.status }}</span>
-      <!-- <span matListItemLine
-        >Clases Inscriptas: {{ alumn.clases.join(", ") }}</span
-      > -->
-    </mat-list-item>
+  <div *ngFor="let alumn of dataSource" class="alumn-card-container">
+    <mat-card class="alumn-card">
+      <mat-card-content>
+        <div class="alumn-info">
+          <mat-card-title>{{ alumn.fullName }}</mat-card-title>
+          <mat-card-subtitle>Año: {{ alumn.year }}</mat-card-subtitle>
+          <p>Carrera: {{ alumn.major }}</p>
+          <p>Estado alumno: {{ alumn.status }}</p>
+          <!-- <p>Clases Inscriptas: {{ alumn.clases.join(", ") }}</p> -->
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="alumn-card-actions">
+        <button mat-icon-button color="warn" (click)="onAlumniDelete(alumn)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="onAlumniEdit(alumn)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <div *ngIf="showForm">
+      <app-alumni-form
+        [alumn]="alumn"
+        (alumniSubmitted)="onAlumniSubtmitted($event)"
+      ></app-alumni-form>
+    </div>
     <hr />
   </div>
 </mat-list>
