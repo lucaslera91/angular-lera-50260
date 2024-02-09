@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+
+// import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    DashboardModule,
   ],
   providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { AlumniData, AlumnInfo } from './models';
+import { AlumnInfo } from './models';
 import { ServicesComponent } from '../../../../services/services.component';
 
 @Component({

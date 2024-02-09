@@ -11,7 +11,24 @@ import { AdminModule } from './pages/admin/admin.module';
 import { MatListModule } from '@angular/material/list';
 import { CursosModule } from './pages/cursos/cursos.module';
 import { InscripcionesModule } from './pages/inscripciones/inscripciones.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AlumnosComponent } from './pages/alumnos/alumnos.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
+import { InscripcionesComponent } from './pages/inscripciones/inscripciones.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: '', component: AlumnosComponent },
+      { path: 'alumnos', component: AlumnosComponent },
+      { path: 'cursos', component: CursosComponent },
+      { path: 'inscripciones', component: InscripcionesComponent },
+      // { path: '', redirectTo: 'alumnos' },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -28,6 +45,7 @@ import { RouterModule } from '@angular/router';
     AdminModule,
     MatListModule,
     RouterModule,
+    RouterModule.forChild(routes),
   ],
   exports: [DashboardComponent],
 })

@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './layouts/header/header.component';
-import { SidebarComponent } from './layouts/sidebar/sidebar.component';
-import { BodyComponent } from './layouts/body/body.component';
-import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
 
 @Component({
@@ -12,11 +8,8 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    SidebarComponent,
-    BodyComponent,
-    DashboardModule,
+    RouterModule,
+    // DashboardModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
