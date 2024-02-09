@@ -1,40 +1,33 @@
-
-
 <mat-drawer-container class="dashboard-container" autosize>
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
+    <button
+      mat-icon-button
+      class="example-icon"
+      (click)="drawer.toggle()"
+      aria-label="Example icon-button with menu icon"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <span>My App</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    ></button>
   </mat-toolbar>
   <!-- <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
     <mat-icon>favorite</mat-icon>
   </button> -->
-    <mat-drawer #drawer class="dashboard-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        
-        Toggle extra text
-      </button>
-    </mat-drawer>
-  
-    <!-- <div class="dashboard-sidenav-content">
-      <button  type="button">
-        Toggle sidenav
-      </button>
-    </div> -->
-  <app-users></app-users>
-  <div class="p-3">
+  <mat-drawer #drawer class="dashboard-sidenav" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="alumnos"> Alumnos </a>
+      <a mat-list-item routerLink="cursos"> Cursos </a>
+      <a mat-list-item routerLink="inscripciones"> Inscripciones </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <!-- <div class="p-3">
     <app-alumnos></app-alumnos>
-  </div>
-  </mat-drawer-container>
+  </div> -->
+</mat-drawer-container>

@@ -2,3 +2,31 @@
   height: 100vh;
 
 }
+.sidenav-container {
+  height: 100%;
+}
+
+.dashboard-sidenav {
+  padding-top: 65px;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333; // Set your desired background color
+  color: #fff; // Set your desired text color
+
+  mat-list-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #555; // Set your desired hover background color
+    }
+
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.main-content {
+  padding: 16px;
+}

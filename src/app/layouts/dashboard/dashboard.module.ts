@@ -6,11 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { UsersModule } from './pages/users/users.module';
-import { ProfesoresModule } from './pages/profesores/profesores.module';
 import { AlumnosModule } from './pages/alumnos/alumnos.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { MatListModule } from '@angular/material/list';
+import { CursosModule } from './pages/cursos/cursos.module';
+import { InscripcionesModule } from './pages/inscripciones/inscripciones.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -21,11 +22,12 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatDividerModule,
     MatToolbarModule,
-    UsersModule,
-    ProfesoresModule,
     AlumnosModule,
+    CursosModule,
+    InscripcionesModule,
     AdminModule,
-
+    MatListModule,
+    RouterModule,
   ],
   exports: [DashboardComponent],
 })
